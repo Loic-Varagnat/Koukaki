@@ -1,0 +1,431 @@
+/*
+ Theme Name:  Fleurs d'orangers et chats errants - Oscars Short
+ Theme URI: https://www.koukaki.local
+ Author: Studio Koukaki
+ Author URI: https://www.koukaki.local
+ Template: foce
+ Description: Thème enfant à l'ocasion de la nomination aux Oscars Shorts
+ Version: 0.1
+ */
+html {
+  overflow-x: hidden;
+}
+main .banner {
+  position: relative !important;
+  width: 100%;
+}
+
+.banner__img {
+  position: fixed;
+  top: 25%;
+  left: 25%;
+  transform: translate(-50%, -50%); /* Centre l'image */
+  z-index: 1; /* Place l'image au-dessus de la vidéo */
+  width: 40% !important;
+}
+.banner__video {
+  display: flex;
+}
+.banner__mobile {
+  display: none;
+}
+@media screen and (max-width: 700px) {
+  .banner__video {
+    display: none;
+  }
+  .banner__mobile {
+    display: flex;
+    width: 100% !important;
+    margin-top: 0px !important;
+  }
+}
+/* mouvement paralax */
+.story,
+#studio,
+.nomination,
+.site-footer {
+  z-index: 2;
+  background-color: #fff5e9;
+}
+/* CSS pour l'animation fade-in */
+.fade-in {
+  opacity: 0; /* Invisible au départ */
+  transition: opacity 1s ease-out; /* Transition fluide */
+}
+
+/* Styles généraux pour les éléments d'animation */
+.fade-in {
+  opacity: 0; /* Les éléments sont invisibles au départ */
+  transition: opacity 1s ease-out; /* Transition fluide pour l'apparition */
+}
+
+/* Styles pour l'animation fade-in */
+.fade-in.visible {
+  opacity: 1; /* Les éléments deviennent visibles */
+}
+
+/* CSS pour l'animation top-anim */
+.top-anim {
+  position: relative;
+  top: -100px; /* Position initiale hors de l'écran vers le haut */
+  opacity: 0; /* Invisible au départ */
+  transition: top 0.5s ease-out, opacity 0.5s ease-out; /* Transition fluide */
+}
+
+.top-anim.visible {
+  top: 0; /* Position finale */
+  opacity: 1; /* Devenir visible */
+}
+
+/* CSS pour l'animation bot-anim */
+.bot-anim {
+  position: relative;
+  bottom: -100px; /* Position initiale hors de l'écran vers le bas */
+  opacity: 0; /* Invisible au départ */
+  transition: bottom 0.5s ease-out, opacity 0.5s ease-out; /* Transition fluide */
+}
+
+.bot-anim.visible {
+  bottom: 0; /* Position finale */
+  opacity: 1; /* Devenir visible */
+}
+
+/* Conteneur de l'image */
+.image-container {
+  position: relative; /* Positionne le conteneur par rapport à son contexte */
+  overflow: hidden; /* Masque les déplacements de l'image en dehors du conteneur */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ajustez la hauteur selon vos besoins */
+}
+
+/* Effet de mouvement fluide */
+.float {
+  display: inline-block; /* Permet à l'image d'être animée tout en restant en ligne */
+  animation: float 15s cubic-bezier(0.42, 0, 0.58, 1) infinite; /* Applique l'animation avec une courbe de Bézier pour une transition fluide */
+}
+
+/* Définition de l'animation */
+@keyframes float {
+  0% {
+    transform: translate(0, 0); /* Position initiale */
+  }
+  10% {
+    transform: translate(
+      30px,
+      -15px
+    ); /* Déplacement vers le haut et à droite */
+  }
+  20% {
+    transform: translate(-15px, 30px); /* Déplacement vers le bas et à gauche */
+  }
+  30% {
+    transform: translate(20px, 20px); /* Déplacement vers le bas et à droite */
+  }
+  40% {
+    transform: translate(
+      -25px,
+      -25px
+    ); /* Déplacement vers le haut et à gauche */
+  }
+  50% {
+    transform: translate(10px, 15px); /* Déplacement vers le bas et à droite */
+  }
+  60% {
+    transform: translate(
+      -20px,
+      -10px
+    ); /* Déplacement vers le haut et à gauche */
+  }
+  70% {
+    transform: translate(
+      25px,
+      -20px
+    ); /* Déplacement vers le haut et à droite */
+  }
+  80% {
+    transform: translate(-15px, 25px); /* Déplacement vers le bas et à gauche */
+  }
+  90% {
+    transform: translate(10px, -5px); /* Déplacement vers le haut et à droite */
+  }
+  100% {
+    transform: translate(
+      0,
+      0
+    ); /* Retour à la position initiale mais de manière fluide */
+  }
+}
+
+/* Ajout de l'animation de rotation */
+.story__article::after {
+  animation: rotate 15s linear infinite; /* Animation de rotation continue */
+}
+h2::after {
+  animation: rotate 15s linear infinite; /* Animation de rotation continue */
+}
+#studio h2::before {
+  animation: rotate 15s linear infinite; /* Animation de rotation continue */
+}
+.rotate-flower::before {
+  animation: rotate 15s linear infinite; /* Animation de rotation continue */
+}
+.rotate-flower {
+  animation: rotate 15s linear infinite; /* Animation de rotation continue */
+}
+.site-footer::before,
+.site-footer::after,
+.site-footer ul::after {
+  animation: rotate 15s linear infinite; /* Animation de rotation continue */
+}
+/* Définition de l'animation */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg); /* Rotation initiale */
+  }
+  100% {
+    transform: rotate(360deg); /* Rotation complète */
+  }
+}
+
+/* Style pour le conteneur Swiper */
+.swiper-container {
+  width: 100%;
+  height: 600px;
+}
+
+/* Style pour les diapositives Swiper */
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  /* Empêcher le drag des images */
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Autoriser le glissement uniquement sur le conteneur */
+.swiper-wrapper {
+  pointer-events: auto;
+  width: 150vw;
+}
+
+/* Autoriser la sélection de texte sur les légendes si nécessaire */
+figcaption {
+  pointer-events: auto;
+  user-select: none;
+  height: 50px;
+}
+
+/* Supprimer l'ombre des côtés des diapositives */
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right {
+  background-image: none !important; /* Enlever les dégradés */
+}
+
+/* Supprimer les ombres internes si elles existent */
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right {
+  box-shadow: none !important; /* Enlever toute ombre */
+}
+
+.animated-title {
+  display: inline-block;
+  color: white;
+  animation: slideIn 1s 1s forwards;
+}
+.animated-delay1-title {
+  display: inline-block;
+  color: white;
+  animation: slideIn 1.5s 1.5s forwards;
+}
+.animated-delay2-title {
+  display: inline-block;
+  color: white;
+  animation: slideIn 2s 1.5s forwards;
+}
+@keyframes slideIn {
+  0% {
+    transform: translate3d(0%, 100%, 0);
+    opacity: 0; /* Texte commence invisible */
+  }
+  100% {
+    transform: translate3d(0%, 0%, 0);
+    opacity: 1; /* Texte visible à la fin de l'animation */
+  }
+}
+
+.story #place {
+  position: relative;
+  background-image: url(http://koukaki.local/wp-content/themes/foce-child/assets/images/place_bg.png);
+}
+
+.big_cloud {
+  position: absolute;
+  height: 125px;
+  top: 70px;
+  right: 50px;
+}
+
+.little_cloud {
+  position: absolute;
+  height: 60px;
+  top: 250px;
+  right: 350px;
+}
+
+.nomination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.nomination-title {
+  position: relative;
+}
+
+.nomination-title h3 {
+  position: absolute;
+  top: 4%;
+  line-height: 3.2rem;
+  text-align: left;
+}
+.nomination-img {
+  height: 100%;
+}
+
+/* Hamburger menu pour le header */
+.site-title {
+  width: 3000px;
+  background-image: none !important;
+  background-color: #ffd5a2 !important;
+}
+.header-barre {
+  display: flex;
+  flex-direction: row;
+  background-color: #ffd5a2;
+}
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+/* hauteur et position du hamburger menu */
+.toggled .nav-menu {
+  display: flex !important;
+  flex-direction: column;
+  height: 818px;
+}
+.toggled {
+  overflow: hidden;
+}
+.toggled button .cross {
+  display: block !important;
+  margin-right: 35px;
+  margin-top: -10px;
+}
+.main-navigation {
+  background-color: #fff7e9 !important;
+  position: fixed;
+  max-width: 1440px;
+}
+.main-navigation button {
+  margin-right: 60px;
+}
+.toggled button .line {
+  display: none !important;
+}
+
+/* croix pour le header */
+.cross {
+  display: none;
+  position: absolute;
+  right: 32px;
+  top: 32px;
+  width: 32px;
+  height: 32px;
+}
+.cross::before,
+.cross::after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 2px;
+  background-color: #333;
+}
+.cross::before {
+  transform: rotate(45deg);
+}
+.cross::after {
+  transform: rotate(-45deg);
+}
+
+.nav-menu li a {
+  font-size: 50px;
+  margin-top: 30px;
+}
+.nav-menu li a:hover {
+  filter: drop-shadow(0px 0px 5px rgb(255, 93, 0));
+  color: black;
+}
+/* img fleur d'oranger */
+.logo-header {
+  height: 100px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.position-header {
+  display: block;
+  position: absolute;
+}
+
+.orchid-header {
+  right: 700px;
+  top: 58px;
+}
+
+.studio-bot-header {
+  margin-top: 180px !important;
+  font-size: 15px !important;
+}
+
+.kawaneko-header {
+  right: 450px;
+  top: -10px;
+  height: 80px;
+}
+
+.sunflower-header {
+  left: 380px;
+  top: -60px;
+}
+.random_flower-header {
+  left: 845px;
+  height: 50px;
+}
+.flower-header {
+  right: 380px;
+  height: 60px;
+  top: 30px;
+}
+.jaakuna-header {
+  left: 500px;
+  top: 30px;
+  height: 80px;
+  animation-delay: 1s;
+}
+.orenjiiro-header {
+  right: 500px;
+  height: 80px;
+  top: 50px;
+  animation-delay: 2s;
+}
+.hibicus-header {
+  left: 500px;
+  top: -30px;
+  max-width: 600px;
+}
+.hidden {
+  opacity: 0;
+}
